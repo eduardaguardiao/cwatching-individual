@@ -105,14 +105,15 @@ public class CriarTabelas {
                         
             CREATE TABLE artigo (
                 id_artigo INT PRIMARY KEY AUTO_INCREMENT,
-                titulo VARCHAR(25),
+                titulo VARCHAR(50),
                 descricao VARCHAR(2000),
                 categoria VARCHAR(45),
                 palavra_chave VARCHAR(45),
+                data_de_criacao DATE DEFAULT (current_date),
                 fk_funcionario INT,
                 CONSTRAINT fk_funcionario_artigo FOREIGN KEY (fk_funcionario) REFERENCES funcionario(id_funcionario)
             );
-                        
+                            
             CREATE TABLE maquina (
                 id_maquina INT PRIMARY KEY AUTO_INCREMENT,
                 hostname VARCHAR(80),

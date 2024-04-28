@@ -10,16 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="724465b6-f04b-4087-8885-ea8306413a9d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/MainCW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/MainCW.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/dao/ProcessoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/dao/ProcessoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/dao/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/models/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/models/Maquina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/models/Processo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/models/Processo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/services/Alerta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/services/Alerta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/services/AtualizarRegistro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/services/AtualizarRegistro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/services/AtualizarRegistroVolume.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/services/AtualizarRegistroVolume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/services/VerificarRede.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/services/VerificarRede.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/conexao/Conexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/conexao/Conexao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/database/CriarTabelas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/database/CriarTabelas.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,29 +45,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AtualizarRegistro.executor&quot;: &quot;Run&quot;,
-    &quot;Application.CriarTabelas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainCW.executor&quot;: &quot;Run&quot;,
-    &quot;Application.PopularTabelas.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestesMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.VerificarRede.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.cwatching [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.cwatching [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/viniz/Elera/OneDrive/sptech/pi/demo/cwatching&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AtualizarRegistro.executor": "Run",
+    "Application.CriarTabelas.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainCW.executor": "Run",
+    "Application.PopularTabelas.executor": "Run",
+    "Application.TestesMain.executor": "Run",
+    "Application.VerificarRede.executor": "Run",
+    "Maven.cwatching [clean].executor": "Run",
+    "Maven.cwatching [install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Maria Eduarda/Documents/Center Watch PI/core-watch",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.MainCW">
     <configuration name="AtualizarRegistro" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cw.services.AtualizarRegistro" />
@@ -129,6 +130,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -137,8 +145,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713366438549</updated>
+      <workItem from="1714269738631" duration="8828000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="OPEN_GENERIC_TABS">
