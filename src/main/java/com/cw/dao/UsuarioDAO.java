@@ -37,8 +37,8 @@ public class UsuarioDAO {
         return con.queryForObject(sql, new BeanPropertyRowMapper<>(Empresa.class));
     }
 
-    public Funcionario buscarFuncionarioPorUsername(String username) {
-        String sql = "SELECT * FROM funcionario JOIN usuario ON id_usuario = id_funcionario WHERE username = '%s'".formatted(username);
+    public Funcionario buscarFuncionarioPorUsername(String username, String cargo) {
+        String sql = "SELECT * FROM funcionario JOIN usuario ON id_usuario = id_funcionario WHERE username = '%s' AND cargo = 'suporte'".formatted(username, cargo);
 
         return con.queryForObject(sql, new BeanPropertyRowMapper<>(Funcionario.class));
     }

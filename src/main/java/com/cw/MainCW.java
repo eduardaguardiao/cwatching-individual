@@ -35,20 +35,24 @@ public class MainCW {
 
         // Loop para interação com usuário (login)
         Boolean continuar;
-        Scanner leitor = new Scanner(System.in);
-//        do {
-//            Scanner leitor = new Scanner(System.in);
-//
-//            System.out.print("Usuário: ");
-//            String username = leitor.next();
-//
-//            System.out.print("Senha: ");
-//            String senha = leitor.next();
-//
-//
-//            // Autentica o login
-//            if (userDao.autenticarLogin(username, senha)) {
-//                // Usuário está logado
+        //Scanner leitor = new Scanner(System.in);
+        do {
+            Scanner leitor = new Scanner(System.in);
+
+            System.out.print("Usuário: ");
+            String username = leitor.next();
+
+            System.out.print("Senha: ");
+            String senha = leitor.next();
+
+            System.out.print("Cargo: ");
+            String cargo = leitor.next();
+
+                
+
+            // Autentica o login
+            if (userDao.autenticarLogin(username, senha)) {
+                // Usuário está logado
 
 
                 String opcoes = """
@@ -56,22 +60,22 @@ public class MainCW {
                         1) Inserir artigo
                         2) Atualizar artigo""";
 
-               // Funcionario funcionario = userDao.buscarFuncionarioPorUsername(username);
+                Funcionario funcionario = userDao.buscarFuncionarioPorUsername(username, cargo);
 
-//                System.out.println("Login com sucesso. Registrando sessão...");
-//                System.out.println("""
-//                        \n----------------------------
-//                        Sessão %s
-//                        ----------------------------
-//                        Nome: %s %s
-//                        ----------------------------
-//                        """.formatted(
-//                        // sessaoAtual.getDtHoraSessao(),
-//                        funcionario.getPrimeiroNome()
-//                        // funcionario.getSobrenome(),
-//                        //funcionario.getCargo()
-//                        //maquina.getHostname()
-//                ));
+                System.out.println("Login com sucesso. Registrando sessão...");
+                System.out.println("""
+                        \n----------------------------
+                        Sessão 
+                        ----------------------------
+                        Nome: %s %s
+                        ----------------------------
+                        """.formatted(
+                        // sessaoAtual.getDtHoraSessao(),
+                        funcionario.getPrimeiroNome(),
+                        // funcionario.getSobrenome(),
+                        funcionario.getCargo()
+                        //maquina.getHostname()
+                ));
 
 
                 ArtigoDAO artigoDao = new ArtigoDAO();
@@ -141,16 +145,16 @@ public class MainCW {
                 } while (escolha.equals(1) || escolha.equals(2));
 
 
-//                continuar = false;
-//            } else {
-//                System.out.println("Login inválido. Tentar novamente? Y/N");
-//
-//                continuar = leitor.next().equalsIgnoreCase("Y");
-//            }
-//
-//        } while (continuar);
+                continuar = false;
+            } else {
+                System.out.println("Login inválido. Tentar novamente? Y/N");
 
-        
+                continuar = leitor.next().equalsIgnoreCase("Y");
+            }
+
+        } while (continuar);
+
+
 
     }
 
