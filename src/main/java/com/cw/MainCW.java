@@ -31,10 +31,11 @@ public class MainCW {
                 """);
 
         CriarTabelas.criarTabelas();
-       PopularTabelas.popularTabelas();
+        PopularTabelas.popularTabelas();
 
         // Loop para interação com usuário (login)
-//        Boolean continuar;
+        Boolean continuar;
+        Scanner leitor = new Scanner(System.in);
 //        do {
 //            Scanner leitor = new Scanner(System.in);
 //
@@ -44,68 +45,102 @@ public class MainCW {
 //            System.out.print("Senha: ");
 //            String senha = leitor.next();
 //
+//
 //            // Autentica o login
 //            if (userDao.autenticarLogin(username, senha)) {
 //                // Usuário está logado
-//
-//                // Busca a empresa pelo usuário logado
-//                Empresa empresa = userDao.buscarEmpresaPorUsername(username);
-//
-//                // Busca os parâmetros definidos pela empresa
-//                ParametroAlerta parametroAlertaAtual = parametroAlertaDAO.buscarParametroAlertaPorEmpresa(empresa);
-//
-//                // Cadastra a máquina atual caso ela não esteja no banco
-//                RegistrarMaquina registrarMaquina = new RegistrarMaquina();
-//                registrarMaquina.registrarMaquinaSeNaoExiste(empresa);
-//
-//                // Busca objetos usuário e máquina para ser registrada a sessão criada
-//                Usuario usuario = userDao.buscarUsuarioPorUsername(username);
-//                Maquina maquina = maquinaDAO.buscarMaquinaPorHostnameEEmpresa(hostname, empresa);
-//
-//                System.out.println("\nCadastrando máquina...");
-//                System.out.println(maquina);
-//
-//                Thread.sleep(400);
-//
-//                // Registra a sessão criada ao logar
-//                sessaoDAO.registrarSessao(maquina.getIdMaquina(), usuario.getIdUsuario());
-//                Sessao sessaoAtual = sessaoDAO.buscarUltimaSessaoPorMaquina(maquina.getIdMaquina());
-//
-//                Funcionario funcionario = userDao.buscarFuncionarioPorUsername(username);
-//
+
+
+                String opcoes = """
+                        Digite a opção desejada
+                        1) Inserir artigo
+                        2) Atualizar artigo""";
+
+               // Funcionario funcionario = userDao.buscarFuncionarioPorUsername(username);
+
 //                System.out.println("Login com sucesso. Registrando sessão...");
 //                System.out.println("""
 //                        \n----------------------------
 //                        Sessão %s
 //                        ----------------------------
 //                        Nome: %s %s
-//                        Cargo: %s
-//                        Máquina: %s
 //                        ----------------------------
 //                        """.formatted(
-//                                sessaoAtual.getDtHoraSessao(),
-//                        funcionario.getPrimeiroNome(),
-//                        funcionario.getSobrenome(),
-//                        funcionario.getCargo(),
-//                        maquina.getHostname()
+//                        // sessaoAtual.getDtHoraSessao(),
+//                        funcionario.getPrimeiroNome()
+//                        // funcionario.getSobrenome(),
+//                        //funcionario.getCargo()
+//                        //maquina.getHostname()
 //                ));
-//
-//                Alerta alerta = new Alerta(parametroAlertaAtual);
-//
-//                // Inicializa timer para coleta de dados de CPU e RAM
-//                Timer atualizarRegistro = new Timer();
-//                atualizarRegistro.schedule(new AtualizarRegistro(sessaoAtual, alerta), 0, parametroAlertaAtual.getIntervaloRegistroMs());
-//
-//                // Inicializa timer para coleta de dados de volumes
-//                Timer atualizarVolume = new Timer();
-//                atualizarVolume.schedule(new AtualizarRegistroVolume(alerta), 0, parametroAlertaAtual.getIntervaloVolumeMs());
-//
-//                // Inicializa o monitoramento de ociosidade de mouse do usuário
-//                OciosidadeMouse ociosidadeMouse = new OciosidadeMouse(usuario);
-//                ociosidadeMouse.setTempoDecrescenteMs(parametroAlertaAtual.getTimerMouseMs());
-//                ociosidadeMouse.setSensibilidadeThreshold(parametroAlertaAtual.getSensibilidadeMouse());
-//                ociosidadeMouse.iniciar();
-//
+
+
+                ArtigoDAO artigoDao = new ArtigoDAO();
+                Artigo artigo = new Artigo();
+
+                Integer escolha, id;
+                String titulo, descricao, categoria, palavraChave;
+
+                do {
+                    System.out.println(opcoes);
+                    escolha = leitor.nextInt();
+                    switch (escolha) {
+                        case 1:
+                            leitor.nextLine();
+                            System.out.println("Digite o título do artigo:");
+                            titulo = leitor.nextLine();
+                            artigo.setTitulo(titulo);
+
+                            System.out.println("Digite a descrição do artigo:");
+                            descricao = leitor.nextLine();
+                            artigo.setDescricao(descricao);
+
+                            System.out.println("Digite a categoria do artigo:");
+                            categoria = leitor.nextLine();
+                            artigo.setCategoria(categoria);
+
+                            System.out.println("Digite a palavra-chave do artigo:");
+                            palavraChave = leitor.nextLine();
+                            artigo.setPalavraChave(palavraChave);
+
+                            artigoDao.inserirArtigo(artigo);
+                            break;
+                        case 2:
+                            leitor.nextLine();
+
+                            System.out.println("Digite o ID do artigo que será atualizado");
+                            id = leitor.nextInt();
+                            artigo.setIdArtigo(id);
+
+                            if(artigoDao.verificarIdExistente(artigo)){
+                                leitor.nextLine();
+                            System.out.println("Digite o título do artigo:");
+                            titulo = leitor.nextLine();
+                            artigo.setTitulo(titulo);
+
+                            System.out.println("Digite a descrição do artigo:");
+                            descricao = leitor.nextLine();
+                            artigo.setDescricao(descricao);
+
+                            System.out.println("Digite a categoria do artigo:");
+                            categoria = leitor.nextLine();
+                            artigo.setCategoria(categoria);
+
+                            System.out.println("Digite a palavra-chave do artigo:");
+                            palavraChave = leitor.nextLine();
+                            artigo.setPalavraChave(palavraChave);
+
+                            artigoDao.atualizarArtigo(artigo);
+                            }
+                            else {
+                                System.out.println("ID não encontrado");
+                            }
+                            break;
+                        default:
+                            System.out.println("Opção inválida.");
+                    }
+                } while (escolha.equals(1) || escolha.equals(2));
+
+
 //                continuar = false;
 //            } else {
 //                System.out.println("Login inválido. Tentar novamente? Y/N");
@@ -115,14 +150,7 @@ public class MainCW {
 //
 //        } while (continuar);
 
-        Artigo artigo1 = new Artigo();
-        artigo1.setTitulo("como resolver problemas de internet");
-        artigo1.setCategoria("rede");
-        artigo1.setDescricao("desligar e ligar o modem");
-        artigo1.setPalavraChave("internet");
-
-        ArtigoDAO artigoDAO = new ArtigoDAO();
-        artigoDAO.inserirArtigo(artigo1);
+        
 
     }
 

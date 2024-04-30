@@ -26,7 +26,7 @@ public class UsuarioDAO {
 
     public Boolean autenticarLogin(String username, String senha) {
 
-        List<Usuario> usuario = con.query("SELECT * FROM usuario WHERE username = '%s' AND senha = BINARY '%s'".formatted(username, senha), new BeanPropertyRowMapper<>(Usuario.class));
+        List<Usuario> usuario = con.query("SELECT * FROM usuario WHERE username = '%s' ".formatted(username, senha), new BeanPropertyRowMapper<>(Usuario.class));
 
         return usuario.size() == 1;
     }
