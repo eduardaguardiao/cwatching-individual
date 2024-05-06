@@ -45,10 +45,10 @@ public class MainCW {
             System.out.print("Senha: ");
             String senha = leitor.next();
 
-            System.out.print("Cargo: ");
-            String cargo = leitor.next();
+//            System.out.print("Cargo: ");
+//            String cargo = leitor.next();
 
-                
+
 
             // Autentica o login
             if (userDao.autenticarLogin(username, senha)) {
@@ -60,23 +60,7 @@ public class MainCW {
                         1) Inserir artigo
                         2) Atualizar artigo""";
 
-                Funcionario funcionario = userDao.buscarFuncionarioPorUsername(username, cargo);
-
-                System.out.println("Login com sucesso. Registrando sessão...");
-                System.out.println("""
-                        \n----------------------------
-                        Sessão 
-                        ----------------------------
-                        Nome: %s %s
-                        ----------------------------
-                        """.formatted(
-                        // sessaoAtual.getDtHoraSessao(),
-                        funcionario.getPrimeiroNome(),
-                        // funcionario.getSobrenome(),
-                        funcionario.getCargo()
-                        //maquina.getHostname()
-                ));
-
+                Funcionario funcionario = userDao.buscarFuncionarioPorUsername(username);
 
                 ArtigoDAO artigoDao = new ArtigoDAO();
                 Artigo artigo = new Artigo();
