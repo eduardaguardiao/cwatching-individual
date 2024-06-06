@@ -1,6 +1,6 @@
 package com.cw.models;
 
-import com.cw.services.Conversor;
+import com.cw.services.ConversorService;
 
 public class Processo {
     private Integer idProcesso;
@@ -65,6 +65,6 @@ public class Processo {
                 Nome: %s
                 Uso de RAM: %.1f GB
                 Caminho: %s
-                """.formatted(nome, Conversor.converterBytesParaGb(usoRam), caminho);
+                """.formatted(nome, ConversorService.converterBytesParaGb(usoRam), caminho);
     }
 }

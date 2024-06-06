@@ -6,12 +6,14 @@ public class Registro {
     private Double usoCpu;
     private Long usoRam;
     private Long disponivelRam;
+    private Long uptime;
     private Integer fkSessao;
 
-    public Registro(Double usoCpu, Long usoRam, Long disponivelRam, Integer fkSessao) {
+    public Registro(Double usoCpu, Long usoRam, Long disponivelRam, Long uptime, Integer fkSessao) {
         this.usoCpu = usoCpu;
         this.usoRam = usoRam;
         this.disponivelRam = disponivelRam;
+        this.uptime = uptime;
         this.fkSessao = fkSessao;
     }
 
@@ -58,6 +60,14 @@ public class Registro {
         this.disponivelRam = disponivelRam;
     }
 
+    public Long getUptime() {
+        return uptime;
+    }
+
+    public void setUptime(Long uptime) {
+        this.uptime = uptime;
+    }
+
     public Integer getFkSessao() {
         return fkSessao;
     }
@@ -74,6 +84,7 @@ public class Registro {
                 ", usoCpu=" + usoCpu +
                 ", usoRam=" + usoRam +
                 ", disponivelRam=" + disponivelRam +
+                ", uptime=" + uptime +
                 ", fkSessao=" + fkSessao +
                 '}';
     }

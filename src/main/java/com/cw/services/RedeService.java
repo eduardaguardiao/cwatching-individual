@@ -2,7 +2,7 @@ package com.cw.services;
 
 import java.net.InetAddress;
 
-public class VerificarRede {
+public class RedeService {
     public Boolean redeConectada() {
         Boolean conectada = false;
 

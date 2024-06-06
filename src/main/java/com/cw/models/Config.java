@@ -1,7 +1,9 @@
 package com.cw.models;
 
-public class ParametroAlerta {
-    private Integer idParametro;
+import java.util.List;
+
+public class Config {
+    private Integer idConfig;
     private Double maxCpu;
     private Double maxRam;
     private Double maxVolume;
@@ -9,9 +11,10 @@ public class ParametroAlerta {
     private Integer timerMouseMs;
     private Integer intervaloRegistroMs;
     private Integer intervaloVolumeMs;
+    private Integer intervaloQuestDias;
+    private List<PermProcesso> permProcessos;
 
-    public ParametroAlerta(Integer idParametro, Double maxCpu, Double maxRam, Double maxVolume, Integer sensibilidadeMouse, Integer timerMouseMs, Integer intervaloRegistroMs, Integer intervaloVolumeMs) {
-        this.idParametro = idParametro;
+    public Config(Double maxCpu, Double maxRam, Double maxVolume, Integer sensibilidadeMouse, Integer timerMouseMs, Integer intervaloRegistroMs, Integer intervaloVolumeMs, Integer intervaloQuestDias) {
         this.maxCpu = maxCpu;
         this.maxRam = maxRam;
         this.maxVolume = maxVolume;
@@ -19,17 +22,18 @@ public class ParametroAlerta {
         this.timerMouseMs = timerMouseMs;
         this.intervaloRegistroMs = intervaloRegistroMs;
         this.intervaloVolumeMs = intervaloVolumeMs;
+        this.intervaloQuestDias = intervaloQuestDias;
     }
 
-    public ParametroAlerta() {
+    public Config() {
     }
 
-    public Integer getIdParametro() {
-        return idParametro;
+    public Integer getIdConfig() {
+        return idConfig;
     }
 
-    public void setIdParametro(Integer idParametro) {
-        this.idParametro = idParametro;
+    public void setIdConfig(Integer idConfig) {
+        this.idConfig = idConfig;
     }
 
     public Double getMaxCpu() {
@@ -88,10 +92,26 @@ public class ParametroAlerta {
         this.intervaloVolumeMs = intervaloVolumeMs;
     }
 
+    public Integer getIntervaloQuestDias() {
+        return intervaloQuestDias;
+    }
+
+    public void setIntervaloQuestDias(Integer intervaloQuestDias) {
+        this.intervaloQuestDias = intervaloQuestDias;
+    }
+
+    public List<PermProcesso> getPermProcessos() {
+        return permProcessos;
+    }
+
+    public void setPermProcessos(List<PermProcesso> permProcessos) {
+        this.permProcessos = permProcessos;
+    }
+
     @Override
     public String toString() {
-        return "ParametroAlerta{" +
-                "idParametro=" + idParametro +
+        return "Config{" +
+                "idConfig=" + idConfig +
                 ", maxCpu=" + maxCpu +
                 ", maxRam=" + maxRam +
                 ", maxVolume=" + maxVolume +
@@ -99,6 +119,8 @@ public class ParametroAlerta {
                 ", timerMouseMs=" + timerMouseMs +
                 ", intervaloRegistroMs=" + intervaloRegistroMs +
                 ", intervaloVolumeMs=" + intervaloVolumeMs +
+                ", intervaloQuestDias=" + intervaloQuestDias +
+                ", permProcessos=" + permProcessos +
                 '}';
     }
 }

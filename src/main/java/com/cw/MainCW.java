@@ -1,25 +1,38 @@
 package com.cw;
 
-import com.cw.dao.*;
-import com.cw.database.CriarTabelas;
-import com.cw.database.PopularTabelas;
-import com.cw.models.*;
+import com.cw.conexao.Conexao;
+import com.cw.models.Usuario;
 import com.cw.services.*;
-import com.github.britooo.looca.api.core.Looca;
 
-import java.util.Scanner;
-import java.util.Timer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainCW {
 
-    public static void main(String[] args) throws Exception {
-        // Buscar hostname da máquina atual
-        String hostname = new Looca().getRede().getParametros().getHostName();
+    public static void main(String[] args) {
 
-        UsuarioDAO userDao = new UsuarioDAO();
-        MaquinaDAO maquinaDAO = new MaquinaDAO();
-        SessaoDAO sessaoDAO = new SessaoDAO();
-        ParametroAlertaDAO parametroAlertaDAO = new ParametroAlertaDAO();
+        Usuario jean = new Usuario("jean.santos", "jea123123");
+        Usuario lucas = new Usuario("lucas.faes", "luc123123");
+        Usuario maria = new Usuario("maria.guardiao", "mar123123");
+        Usuario pedro = new Usuario("pedro.scortuzzi", "sco123123");
+        Usuario samuel = new Usuario("samuel.batista", "sam123123");
+        Usuario vinicius = new Usuario("vinicius.zirondi", "vin123123");
+        Usuario benedito = new Usuario("ryan.costa", "rya123123");
+
+        List<Usuario> usuarios = Arrays.asList(jean, lucas, maria, pedro, samuel, vinicius, benedito);
+
+        Usuario user = new Usuario();
+
+//        Boolean loginJava = Boolean.parseBoolean(args[0]); // Caso for construir o arquivo .jar
+        Boolean loginJava = true; // Caso estiver executando na IDE
+
+        if (!loginJava) {
+            System.out.println(usuarios.get(Integer.parseInt(args[1])));
+            user = usuarios.get(Integer.parseInt(args[1]));
+        }
+
+        Conexao.testarConexoes();
 
         System.out.println("""                                                                      
                    ______           __           _       __      __       __ \s
@@ -30,115 +43,7 @@ public class MainCW {
                                                                              \s                                                                         
                 """);
 
-        CriarTabelas.criarTabelas();
-        PopularTabelas.popularTabelas();
-
-        // Loop para interação com usuário (login)
-        Boolean continuar;
-        //Scanner leitor = new Scanner(System.in);
-        do {
-            Scanner leitor = new Scanner(System.in);
-
-            System.out.print("Usuário: ");
-            String username = leitor.next();
-
-            System.out.print("Senha: ");
-            String senha = leitor.next();
-
-//            System.out.print("Cargo: ");
-//            String cargo = leitor.next();
-
-
-
-            // Autentica o login
-            if (userDao.autenticarLogin(username, senha)) {
-                // Usuário está logado
-
-
-                String opcoes = """
-                        Digite a opção desejada
-                        1) Inserir artigo
-                        2) Atualizar artigo""";
-
-                Funcionario funcionario = userDao.buscarFuncionarioPorUsername(username);
-
-                ArtigoDAO artigoDao = new ArtigoDAO();
-                Artigo artigo = new Artigo();
-
-                Integer escolha, id;
-                String titulo, descricao, categoria, palavraChave;
-
-                do {
-                    System.out.println(opcoes);
-                    escolha = leitor.nextInt();
-                    switch (escolha) {
-                        case 1:
-                            leitor.nextLine();
-                            System.out.println("Digite o título do artigo:");
-                            titulo = leitor.nextLine();
-                            artigo.setTitulo(titulo);
-
-                            System.out.println("Digite a descrição do artigo:");
-                            descricao = leitor.nextLine();
-                            artigo.setDescricao(descricao);
-
-                            System.out.println("Digite a categoria do artigo:");
-                            categoria = leitor.nextLine();
-                            artigo.setCategoria(categoria);
-
-                            System.out.println("Digite a palavra-chave do artigo:");
-                            palavraChave = leitor.nextLine();
-                            artigo.setPalavraChave(palavraChave);
-
-                            artigoDao.inserirArtigo(artigo);
-                            break;
-                        case 2:
-                            leitor.nextLine();
-
-                            System.out.println("Digite o ID do artigo que será atualizado");
-                            id = leitor.nextInt();
-                            artigo.setIdArtigo(id);
-
-                            if(artigoDao.verificarIdExistente(artigo)){
-                                leitor.nextLine();
-                            System.out.println("Digite o título do artigo:");
-                            titulo = leitor.nextLine();
-                            artigo.setTitulo(titulo);
-
-                            System.out.println("Digite a descrição do artigo:");
-                            descricao = leitor.nextLine();
-                            artigo.setDescricao(descricao);
-
-                            System.out.println("Digite a categoria do artigo:");
-                            categoria = leitor.nextLine();
-                            artigo.setCategoria(categoria);
-
-                            System.out.println("Digite a palavra-chave do artigo:");
-                            palavraChave = leitor.nextLine();
-                            artigo.setPalavraChave(palavraChave);
-
-                            artigoDao.atualizarArtigo(artigo);
-                            }
-                            else {
-                                System.out.println("ID não encontrado");
-                            }
-                            break;
-                        default:
-                            System.out.println("Opção inválida.");
-                    }
-                } while (escolha.equals(1) || escolha.equals(2));
-
-
-                continuar = false;
-            } else {
-                System.out.println("Login inválido. Tentar novamente? Y/N");
-
-                continuar = leitor.next().equalsIgnoreCase("Y");
-            }
-
-        } while (continuar);
-
-
+        LoginService.logar(loginJava, user);
 
     }
 

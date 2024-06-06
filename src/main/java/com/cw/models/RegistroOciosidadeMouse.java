@@ -5,19 +5,19 @@ import org.h2.util.DateTimeUtils;
 public class RegistroOciosidadeMouse {
     private int idTempoOciosidade;
     private String dtHoraRegistro;
-    private int tempoRegistroSeg;
+    private int tempoRegistroMs;
     private int fkUsuario;
 
-    public RegistroOciosidadeMouse(int tempoRegistroSeg, int fkUsuario) {
-        this.tempoRegistroSeg = tempoRegistroSeg;
+    public RegistroOciosidadeMouse(int tempoRegistroMs, int fkUsuario) {
+        this.tempoRegistroMs = tempoRegistroMs;
         this.fkUsuario = fkUsuario;
     }
 
     public RegistroOciosidadeMouse() {
     }
 
-    public int getTempoRegistroSeg() {
-        return tempoRegistroSeg;
+    public int getTempoRegistroMs() {
+        return tempoRegistroMs;
     }
 
     public int getIdTempoOciosidade() {
@@ -36,8 +36,8 @@ public class RegistroOciosidadeMouse {
         this.dtHoraRegistro = dtHoraRegistro;
     }
 
-    public void setTempoRegistroSeg(int tempoRegistroSeg) {
-        this.tempoRegistroSeg = tempoRegistroSeg;
+    public void setTempoRegistroMs(int tempoRegistroMs) {
+        this.tempoRegistroMs = tempoRegistroMs;
     }
 
     public int getFkUsuario() {
@@ -50,11 +50,13 @@ public class RegistroOciosidadeMouse {
 
     @Override
     public String toString() {
-        return "RegistroOciosidadeMouse{" +
-                "idTempoOciosidade=" + idTempoOciosidade +
-                ", dtHoraRegistro='" + dtHoraRegistro + '\'' +
-                ", tempoRegistroSeg=" + tempoRegistroSeg +
-                ", fkUsuario=" + fkUsuario +
-                '}';
+        return """
+                -----------------------
+                Registro de Ociosidade
+                -----------------------
+                Tempo ocioso: %.1f seg
+                Data e hora: %s
+                -----------------------
+                """.formatted(((double)tempoRegistroMs)/1000, dtHoraRegistro);
     }
 }
