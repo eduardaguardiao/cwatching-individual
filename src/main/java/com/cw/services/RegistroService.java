@@ -38,6 +38,7 @@ public class RegistroService extends TimerTask {
                     looca.getMemoria().getDisponivel(),
                     looca.getSistema().getTempoDeAtividade(),
                     sessao.getIdSessao());
+            System.out.println("ram: " + registro);
 
             registroDAO.inserirRegistro(registro);
 
