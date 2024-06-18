@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98070f71-4dfd-4365-94c7-bf5572719756" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cw/models/Relatorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/MainCW.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/MainCW.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/services/RegistroService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/services/RegistroService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cw/models/Relatorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cw/models/Relatorio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maria Eduarda/Documentos/cwatching-individual&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maria Eduarda/Documentos/Center Watch PI/cwatching&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -110,22 +109,13 @@
       <workItem from="1717902836425" duration="2648000" />
       <workItem from="1717905616661" duration="59000" />
       <workItem from="1717906283508" duration="1613000" />
-      <workItem from="1717956036423" duration="13237000" />
+      <workItem from="1717956036423" duration="17711000" />
+      <workItem from="1718048590948" duration="1006000" />
+      <workItem from="1718051625509" duration="59000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/cw/MainCW.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

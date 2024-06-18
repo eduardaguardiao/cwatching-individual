@@ -1,5 +1,6 @@
 package com.cw.models;
 
+import com.cw.services.LogsService;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 
@@ -39,7 +40,7 @@ public class Relatorio {
             return "A memória está dentro do limite.";
         }
     }
-    
+
         public String gerarRelatorio() throws IOException {
             LocalDateTime dataAtual = LocalDateTime.now();
             DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
@@ -56,6 +57,10 @@ public class Relatorio {
             return relatorios;
         }
 
+        public void gerarLogRelatorios(){
+            String mensagem = "Relatório criado em: " + DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
+            LogsService.gerarLog(mensagem);
+        }
 
     public Long getMemoriaMaxima() {
         return memoriaMaxima;
